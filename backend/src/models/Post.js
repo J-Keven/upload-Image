@@ -31,7 +31,7 @@ PostSchema.pre('remove', function() {
     }
     else{
         return s3.deleteObject({
-            Bucket: "oploadimagens",
+            Bucket: process.env.BUCKET,
             Key: this.key
         }).promise()
     }
