@@ -14,7 +14,7 @@ module.exports = {
             url,
         })
 
-        return res.status(201).json({"msg": post})
+        return res.status(201).json(post)
     },
     async delete(req, res){
         const post = await Posts.findById(req.params.id)
