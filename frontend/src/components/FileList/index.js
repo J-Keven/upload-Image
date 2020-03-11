@@ -1,11 +1,10 @@
 import React from "react";
 import { CircularProgressbar } from 'react-circular-progressbar'
 import { MdCheckCircle, MdError, MdLink } from "react-icons/md"
-import api from '../../services/api'
 
-import { Container, FileInfo, Preview } from './style'
+import { Container, FileInfo, Preview, } from './style'
 
-const FileList = ({ file }) => (
+const FileList = ({ file, handleDelete , }) => (
     <Container>
         { file.map( uploadfiles => (
             <li key={uploadfiles.id}>
@@ -15,10 +14,7 @@ const FileList = ({ file }) => (
                         <strong>{uploadfiles.name}</strong>
                         <span>{uploadfiles.readebleSize}{}
                         {uploadfiles.url && (
-                            <button onClick={ () => {
-                                api.delete(`/posts/${uploadfiles.id}`)
-                                
-                            } }>Excluir</button>
+                            <button onClick={ handleDelete() }>Excluir</button>
                         )}</span>
                     </div>
                 </FileInfo>

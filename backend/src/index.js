@@ -26,7 +26,7 @@ app.use('/files', express.static(path.resolve(__dirname, '..', 'temp', 'uploads'
 
 app.use(Routes)
 
-const PORT = (process.env.PORT || 3330)
+const PORT = (process.env.PORT || 3333)
 
 app.listen(PORT, () => {
     console.log("O server esta rodando em: http://localhost:3333")

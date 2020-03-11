@@ -69,6 +69,13 @@ class App extends Component{
     })
   }
 
+  handleDelete = async id => {
+    await api.delete(`/posts/${id}`)
+    this.setState({
+      uploadfiles: this.state.uploadfiles.id !== id
+    })
+  }
+
   render() {
     const { uploadfiles } = this.state
     return (
@@ -78,7 +85,7 @@ class App extends Component{
           <Content>
             <Upload onUpload={this.handleUpload}/>
             { !! uploadfiles && (
-              <FileList file={ uploadfiles }/>
+              <FileList file={ uploadfiles } handleDelete={ this.handleDelete }/>
             ) }
           </Content>
         </Conteiner>
